@@ -2,49 +2,56 @@ import React from "react";
 import { AiFillGithub, AiFillGoogleCircle } from "react-icons/ai";
 import { FaFacebook } from "react-icons/fa";
 import useInputValue from "../../useInputValue";
+
 import {
-  useSignInWithEmailAndPassword,
+ 
+  useCreateUserWithEmailAndPassword,
   useSignInWithFacebook,
   useSignInWithGithub,
   useSignInWithGoogle,
-  useUpdatePassword,
 } from "react-firebase-hooks/auth";
 import auth from "../../Firebase/Firebase.init";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const LogIn = () => {
-  const { userInfo, getEmail, getPassword, errors } = useInputValue();
-
-  const [signInWithGoogle, googleUser, googleLoading, googleError] =
-    useSignInWithGoogle(auth);
-  const [signInWithGithub, githubUser, githubLoading, githubError] =
-    useSignInWithGithub(auth);
-  const [signInWithFacebook, Fuser, Floading, Ferror] =
-    useSignInWithFacebook(auth);
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
-  const [updatePassword, updating, updateError] = useUpdatePassword(auth);
-
+const SignUp = () => {
+  const {
+    userInfo,
+    getEmail,
+    getPassword,
+    getConfirmPassword,
+   
+    chackehandler,
+    errors,
+  } = useInputValue();
   let navigate = useNavigate();
-  let location = useLocation();
-  let from = location.state?.from?.pathname || "/";
 
-  if (user) {
-    navigate(from, { replace: true });
-  }
+  const [signInWithGoogle] =
+    useSignInWithGoogle(auth);
+  const [signInWithGithub] =
+    useSignInWithGithub(auth);
+  const [signInWithFacebook] =
+    useSignInWithFacebook(auth);
 
-  const userSignIn = (e) => {
+    const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+   
+ if(user){
+   navigate('/home')
+ }
+
+ 
+    const createUser = (e) => {
     e.preventDefault();
-
-    signInWithEmailAndPassword(userInfo.email, userInfo.password);
+console.log(userInfo.email, userInfo.password)
+    createUserWithEmailAndPassword(userInfo.email, userInfo.password);
   };
 
   return (
-    <div className="w-screen text-white pt-32 bg-[rgb(0,0,0)] lg:h-screen">
-      <div className="lg:mt-44 md:w-[600px] w-[90%] bg-[rgb(41,55,75)] mx-auto rounded-2xl shadow-2xl shadow-[rgb(41,55,75)]/75">
+    <div className="w-screen text-white pt-32">
+      <div className=" md:w-[600px] w-[90%] bg-[rgb(41,55,75)] mx-auto rounded-2xl shadow-2xl shadow-[rgb(41,55,75)]/75 mb-6 lg:mt-32">
         <div className="w-full lg:px-20 p-4 ">
-          <div className="text-center text-2xl font-semibold">SIGN IN</div>
-          <form onSubmit={userSignIn} className="w-full pt-8">
+          <div className="text-center text-2xl font-semibold uppercase">Sign Up</div>
+          <form onSubmit={createUser} className="w-full pt-8">
             <div className="mb-10">
               <label>E-MAIL</label>
               <input
@@ -52,7 +59,7 @@ const LogIn = () => {
                 type="email"
                 placeholder="Enter your email"
               />
-              <p className="text-red-500 pt-1">{errors?.emailErrors}</p>
+              <p className="text-red-500 mt-1">{errors?.emailErrors}</p>
             </div>
 
             <div className="mb-10">
@@ -65,31 +72,50 @@ const LogIn = () => {
               <p className="text-red-500 pt-1 ">{errors?.passwordErrors}</p>
             </div>
 
-            <p
-              onClick={async () => {
-                await updatePassword(userInfo.password);
-                alert("Updated password");
-              }}
-              className="underline ml-2 cursor-pointer p-2 underline-offset-4 decoration-[rgb(184,19,134)]"
-            >
-              Forgot your password?
-            </p>
+            <div className="mb-10">
+              <label>Confirm Password</label>
+              <input
+                onChange={getConfirmPassword}
+                type="password"
+                placeholder="Enter your confirm password"
+              />
+              <p className="text-red-500 pt-1 ">
+                {errors?.confirmPasswordErrors}
+              </p>
+            </div>
 
-            <div className="mt-10 space-y-4 md:space-x-4 md:items-center">
-              <div>
-              <button
+            <span>
+              <input
+                onClick={chackehandler}
+                className=" w-3"
+                ch
+                type="checkbox"
+              />
+              <span className="ml-2">
+                I agree all{" "}
+                <span className="underline  underline-offset-4 decoration-[rgb(184,19,134)]">
+                  terms of Service
+                </span>
+              </span>
+            </span>
+            <p className="text-red-500 pt-1 ">{errors?.checkboxError}</p>
+
+            <div className=" justify-center mt-10 space-y-4 md:space-x-4 md:items-center">
+             <div>
+             <button
                 type="submit"
                 className="bg-[rgb(184,19,134)] md:text-xl font-semibold px-4  md:px-6 py-1 md:py-3 rounded-full w-full"
               >
-                Sign In
+                
+                Sign Up
               </button>
-              </div>
+             </div>
               <div className="text-center">
               <Link
-                to="/signup"
+                to="/login"
                 className="underline  underline-offset-4 decoration-[rgb(184,19,134)] px-1 pb-3"
               >
-                Create new Account
+                I'm already member
               </Link>
               </div>
             </div>
@@ -115,4 +141,4 @@ const LogIn = () => {
   );
 };
 
-export default LogIn;
+export default SignUp;
