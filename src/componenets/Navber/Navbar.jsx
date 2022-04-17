@@ -10,9 +10,9 @@ const Navbar = () => {
               <div>
               <ul className='hidden md:flex items-center text-xl'>
                    <li className='px-4'>Home</li>
-                   <li className='px-4'>Food</li>
-                   <li className='px-4'>Service</li>
-                   <li className='px-4'>About</li>
+                   <li className='px-4'>Services</li>
+                   <li className='px-4'>Blogs</li>
+                   <li className='px-4'>About Me</li>
                    <div>
                        <button className='px-4 font-semibold py-2 rounded-full bg-[rgb(99,214,196)] shadow-2xl '>Sign Up</button>
                    </div>
@@ -24,10 +24,10 @@ const Navbar = () => {
                   </div>
                   <div className={!nav ? 'md:hidden  fixed top-[-100%] w-full left-0 bg-[rgb(41,55,75)] text-2xl' : 'md:hidden  fixed top-20 w-full left-0 bg-[rgb(41,55,75)] text-2xl'}>
               <ul className='flex flex-col justify-center place-items-center'>
-                   <li className='py-4 '>Home</li>
-                   <li className='py-4 '>Food</li>
-                   <li className='py-4 '>Service</li>
-                   <li className='py-4 '>About</li>
+                    <li className='px-4'>Home</li>
+                   <li className='px-4'>Services</li>
+                   <li className='px-4'>Blogs</li>
+                   <li className='px-4'>About Me</li>
                    <div>
                        <button className='px-4 mb-8 font-semibold py-2 rounded-full bg-[rgb(99,214,196)] shadow-2xl '>Sign Up</button>
                    </div>
