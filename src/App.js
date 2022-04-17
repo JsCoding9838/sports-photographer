@@ -1,24 +1,21 @@
-import { Route, Routes } from 'react-router-dom';
-import './App.css';
-import AboutMe from './componen/AboutMe/AboutMe';
-import Blogs from './componen/Blogs/Blogs';
-import Home from './componen/Home/Home';
-import Navbar from './componen/Navbar/Navbar';
-import Services from './componen/Services/Services';
+
+
+// import Footer from "./componenets/Footer/Footer";
+// import Home from "./componenets/Home/Home";
+// import LogIn from "./componenets/LogIn/LogIn";
+import Navbar from "./componenets/Navber/Navbar";
+// import SignUp from "./componenets/Navber/SignUp";
+
 
 function App() {
   return (
     <>
-      <Navbar/>
-      
-      <Routes>
-        <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/home" element={<Home></Home>}></Route>
-        <Route path="/services" element={<Services></Services>}></Route>
-        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
-        <Route path="/aboutme" element={<AboutMe></AboutMe>}></Route>
-      </Routes>
-
+   <Navbar/>
+  
+   {/* <SignUp></SignUp> */}
+   {/* <Home></Home> */}
+   {/* <Footer></Footer> */}
+   
     </>
   );
 }
