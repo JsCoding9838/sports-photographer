@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 
 const Footer = () => {
+    const onDate = new Date();
+  const d = onDate.getFullYear();
+  console.log(d) 
+  const [date , setDate] = useState(0)
+  useEffect(() =>{
+    setDate(d)
+
+  },[])
     return (
-        <div className="w-screen bg-[rgb(41,55,75)] text-white flex-wrap pt-20">
+        <div className="w-screen bg-[rgb(29,32,37)] text-white flex-wrap pt-12">
 
 
             <div className="md:flex items-center justify-center pb-12">
@@ -40,9 +48,9 @@ const Footer = () => {
             <div className="">
                 <div className="flex justify-center w-full px-1 text-sm md:text-2xl md:py-3 py-2">
                     <div>
-                    <p className=''>Sports phopographer since 2015 to 2022</p>
+                    <p className=''>Sports phopographer since 2015 to {d}</p>
                     
-                    <p className=" w-full text-center">Copyright &copy; 2022</p>
+                    <p className=" w-full text-center">Copyright &copy; {d}</p>
                     </div>
                 </div>
                 <div className="flex justify-center lg:gap-22 md:gap-6 py-2 gap-6">

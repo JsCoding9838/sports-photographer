@@ -3,11 +3,12 @@ import React from "react";
 // import banner from '../../assets/image/Asset 1.png';
 import banner from "../../assets/image/banner.webp";
 import Footer from '../Footer/Footer'
+import Services from "../Services/Services";
 
 const Home = () => {
   return (
     <>
-      <div className="w-screen md:px-16 pt-24 px-2  md:pt-44 text-white  bg-gray-900 md:h-screen">
+      <div className="w-screen md:px-16 pt-24 px-2  md:pt-44 text-white  bg-gray-900">
         <div className="w-full h-full mx-auto md:pt-20 lg:pt-44">
           <div className="lg:flex justify-between items-center ">
             <div className="lg:space-y-4 md:space-y-2  w-full h-full text-center lg:text-left  md:pr-2">
@@ -39,7 +40,8 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Services/>
+     
     </>
   );
 };

@@ -20,8 +20,8 @@ const Navbar = () => {
             <Link to="/checkout" className="px-4">
               CheckOut
             </Link>
-            <li className="px-4">Blogs</li>
-            <li className="px-4">About Me</li>
+            <Link to="/blogs" className="px-4">Blogs</Link>
+            <Link to="/aboutme" className="px-4">About Me</Link>
             <div>
               {user ? (
                 <Link
@@ -66,7 +66,7 @@ const Navbar = () => {
                 <Link
                   to="/login"
                   onClick={() => signOut(auth)}
-                  className="px-4 mb-8 font-semibold py-2 rounded-full bg-[rgb(3,22,19)] shadow-2xl "
+                  className="px-4 mb-8 font-semibold py-2 rounded-full bg-[rgb(184,19,134)] shadow-2xl "
                 >
                   Sign out
                 </Link>

@@ -1,30 +1,44 @@
+import { createContext, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import CheckOut from "./componenets/CheckOut/CheckOut";
-
+import Footer from "./componenets/Footer/Footer";
 import Home from "./componenets/Home/Home";
 import LogIn from "./componenets/LogIn/LogIn";
 import Navbar from "./componenets/Navber/Navbar";
-import RequireAuth from "./componenets/RequirAuth/RequirAuth";
 import SignUp from "./componenets/SignUp/SignUp";
-// import SignUp from "./componenets/Navber/SignUp";
+import RequirAuth from './componenets/RequirAuth/RequirAuth.jsx'
+import Blogs from './componenets/Blogs/Blogs.jsx'
+import About from "./componenets/About/About";
 
+ export const serviceContext = createContext()
 
 function App() {
+  const [service, setService] = useState([]);
+  
+
   return (
     <>
-   <Navbar/>
-   
-   <Routes>
-     <Route path='/' element={<Home/>}></Route>
-     <Route path='/home' element={<Home/>}></Route>
-     <Route path='/login' element={<LogIn/>}></Route>
-     <Route path='/signup' element={<SignUp/>}></Route>
-     <Route path='/checkout' element={<RequireAuth>
-       <CheckOut/>
-     </RequireAuth>}></Route>
+    <serviceContext.Provider value={[service, setService]}>
+      <Navbar />
+
      
-   </Routes>
-   
+
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/signup' element={<SignUp />} />
+        <Route path='/login' element={<LogIn />} />
+        <Route path='/blogs' element={<Blogs></Blogs>} />
+        <Route path='/aboutme' element={<About></About>} />
+        {/* <Route path='/aboutme' element={<About></About>} /> */}
+        
+        <Route path='/checkout' element={<RequirAuth>
+          <CheckOut/>
+        </RequirAuth>} />
+       
+     </Routes>
+      </serviceContext.Provider>
+      <Footer/>
     </>
   );
 }
