@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <div className="w-screen">
       <div className="flex justify-between items-center lg:z-100 px-4 h-20 fixed  md:px-8 lg:px-16 w-full bg-[rgb(9,9,9)] shadow-2xl shadow-slate-800/50 text-white">
-        <h1 className="text-2xl font-bold">Logo</h1>
+        <h1 className="text-2xl font-bold">Sport Photographer</h1>
         <div>
           <ul className="hidden md:flex items-center text-xl">
             <Link to="/home" className="px-4">
