@@ -1,8 +1,5 @@
 import React from "react";
-// import Typed from 'react-typed';
-// import banner from '../../assets/image/Asset 1.png';
 import banner from "../../assets/image/banner.webp";
-import Footer from '../Footer/Footer'
 import Services from "../Services/Services";
 
 const Home = () => {
@@ -13,11 +10,8 @@ const Home = () => {
           <div className="lg:flex justify-between items-center ">
             <div className="lg:space-y-4 md:space-y-2  w-full h-full text-center lg:text-left  md:pr-2">
               <p className="lg:text-4xl">Hellow, I'm</p>
-              <h1 className="lg:text-5xl font-bold md:text-3xl  text-2xl italic">
-                READUL ISLAM{" "}
-                {/* <p className="  text-[rgb(99,214,196)]  '">
-                  <Typed strings={['READUL', 'JUBAYER']} typeSpeed={120} backSpeed={140} loop></Typed>
-                </p> */}
+              <h1 className="lg:text-5xl font-bold md:text-3xl  text-2xl italic uppercase">
+              Sports Photographer LIFE
               </h1>
               <p className="lg:text-xl text-[14px] md:text-base text-gray-400 pb-2 ">
                 These pictures can be either stored as a soft copy or they can

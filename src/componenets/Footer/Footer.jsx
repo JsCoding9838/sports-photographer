@@ -4,8 +4,7 @@ import React, { useEffect, useState } from 'react';
 const Footer = () => {
     const onDate = new Date();
   const d = onDate.getFullYear();
-  console.log(d) 
-  const [date , setDate] = useState(0)
+  const [date , setDate] = useState(0);
   useEffect(() =>{
     setDate(d)
 
@@ -48,9 +47,9 @@ const Footer = () => {
             <div className="">
                 <div className="flex justify-center w-full px-1 text-sm md:text-2xl md:py-3 py-2">
                     <div>
-                    <p className=''>Sports phopographer since 2015 to {d}</p>
+                    <p className=''>Sports phopographer since 2015 to {date}</p>
                     
-                    <p className=" w-full text-center">Copyright &copy; {d}</p>
+                    <p className=" w-full text-center">Copyright &copy; {date}</p>
                     </div>
                 </div>
                 <div className="flex justify-center lg:gap-22 md:gap-6 py-2 gap-6">
